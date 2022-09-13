@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <div class="container">
+    <form #userreg = "ngForm" (ngSubmit) = "onClickSubmit(userreg.value)">
+        <div class="form-group">
+        <label for="name">Username: </label>
+       <input type="text" placeholder="Enter Username" class="form-control" [(ngModel)]="user_name" name="user_name" />      
+       </div>
+       <br/>
+       <div class="form-group">
+        <label for="name">Email:</label>
+       <input type="text" placeholder="Enter Email" class="form-control" [(ngModel)]="user_email" name="user_email"  />      
+       </div><br/>
+
+       <div class="form-group">
+        <label for="name">Photo:&nbsp;</label>       
+        <img id="blah" *ngIf="showEditPIc" src="{{ImagePath}}{{photo}}" alt="Edit image" height="50px" width="50px" /><br/><br/> 
+        <img id="blah" *ngIf="(!showEditPIc && isAddMode) || isPreview" [src]="imgSrc" alt="Preview image" height="50px" width="50px" /><br/><br/> 
+       <input type="file" class="form-control" (change)="onFileChange($event)" id="fileUpload" name="file"  />          
+       </div><br/>
+       
+       <button *ngIf="isAddMode" type="submit">Update</button>
+       <button *ngIf="!isAddMode" type="submit">Submit</button>
+     </form>
+  </div>
+  </div>
+   
+    
